@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 이벤트 모델 1</title>
+    <script>
+        function greet() {
+            alert('안녕하세요 인라인 이벤트 모델 2')
+        }
+
+        function addSter(btn){
+            btn.textContent += '★';        // value는 input 요소의 값, textContent는 요소의 텍스트 내용
+        }
+
+        function overChange(btn){
+            btn.style.backgroundColor = "magenta";
+            btn.style.color = "white";
+        }
+
+        function outChange(btn){
+            btn.style.backgroundColor = "yellow";
+            btn.style.color = "brown";
+        }
+
+        let count1 = 1;
+        function changeImg(img){
+            count1++;
+            if(count1 == 6){
+                count1 = 1;
+            }
+            img.src = "imgs/images" + count1 + ".jpg";
+        }
+
+        let count2 = 1;
+        function showImageSlide(){
+            let img2 = document.getElementById('img2');
+            setInterval(function(){
+                count2++;
+                if(count2 == 6){
+                    count2 = 1;
+                }
+                img2.src = "imgs/images" + count2 + ".jpg";
+            }, 2000);
+
+            let a1 = document.getElementById("a1");
+            a1.onclick = function(event){
+                // event.preventDefault();   // a 태그의 디폴트 이벤트 제거
+                return false;       // a 태그의 디폴트 이벤트 제거
+            };
+        }
+    </script>
+</head>
+<body onload="showImageSlide()">
+    <button onclick="alert('인라인 이벤트 모델 1')">인라인 이벤트 모델 1</button><br><br>
+    <button onclick="greet()">인라인 이벤트 모델 2</button><br><br>
+    <button onclick="addSter(this)">별 추가</button><br><br>
+    <button onmouseover="overChange(this)" onmouseout="outChange(this)">배경 및 글자색 변경</button><br><br>
+    <img src="imgs/images1.jpg" width="250" height="300" onclick="changeImg(this)" style="cursor: pointer;"><br><br>
+    <img src="imgs/images1.jpg" width="250" height="300" id="img2"><br><br>
+    <a href="https://www.naver.com/" id="a1">디폴트 이벤트 제거</a>
+</body>
+</html>

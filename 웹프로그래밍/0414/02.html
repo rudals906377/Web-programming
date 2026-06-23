@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조 선택자</title>
+    <!-- 구조 선택자 -->
+     <style>
+        ul{
+            overflow: hidden;
+        }
+        li{
+            list-style: none;
+            float: left;
+            width: 100px;
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        li:first-child(2n){
+            border-radius: 10px 0 0 10px;
+        }
+        li:last-child(2n+1){
+            border-radius: 0 10px 10px 0;
+        }
+        li:nth-child(2n){
+            background-color: rgb(228, 119, 119);
+        }
+        li:nth-child(2n+1){
+            background-color: rgb(44, 44, 102);
+        }
+    </style>
+</head>
+<body>
+    <ui>
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+        <li>네번째</li>
+        <li>다섯번째</li>
+        <li>여섯번째</li>
+        <li>일곱번째</li>
+    </ui>
+</body>
+</html>
